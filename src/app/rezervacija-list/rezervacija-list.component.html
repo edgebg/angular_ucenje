@@ -1,0 +1,38 @@
+<app-home></app-home>
+
+<h3 class="mt-5 mb-3">Lista rezervacija</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Gost</th>
+            <th>Email</th>
+            <th>Broj sobe</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Aktivnost</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let rezervacija of rezervacije">
+            <td>{{rezervacija.imeGosta}}</td>
+            <td>{{rezervacija.emailGosta}}</td>
+            <td>{{rezervacija.brojSobe}}</td>
+            <td>{{rezervacija.checkInDatum}}</td>
+            <td>{{rezervacija.checkOutDatum}}</td>
+            <td>
+                <button class="btn btn-sm btn-danger mx-1" (click)="deleteRezervacija(rezervacija.id)">Obriši</button>
+                <button class="btn btn-sm btn-secondary mx-1" [routerLink]="['/edit', rezervacija.id]">Izmeni</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<ul *ngIf="rezervacije.length; else noRezervacija">
+
+</ul>
+
+<ng-template #noRezervacija>
+    <p>Nema ni jedne rezevacije.</p>
+</ng-template>
+

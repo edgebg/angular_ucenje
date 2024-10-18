@@ -1,0 +1,54 @@
+<app-home></app-home>
+
+<h3 class="mt-5 mb-3">Kreiraj novu rezervaciju</h3>
+
+<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Datum prijave:</label>
+            <input class="form-control" type="date" formControlName="checkInDatum">
+            <small class="text-danger" *ngIf="reservationForm.get('checkInDatum')?.invalid && reservationForm.get('checkInDatum')?.touched">
+                Datum prijave je obavezan.
+            </small>
+        </div>
+
+        <div class="col">
+            <label class="form-label">Datum odjave:</label>
+            <input class="form-control" type="date" formControlName="checkOutDatum">
+            <small class="text-danger" *ngIf="reservationForm.get('checkOutDatum')?.invalid && reservationForm.get('checkOutDatum')?.touched">
+                Datum odjave je obavezan.
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col">
+            <label class="form-label">Ime gosta:</label>
+            <input class="form-control" type="text" formControlName="imeGosta">
+            <small class="text-danger" *ngIf="reservationForm.get('imeGosta')?.invalid && reservationForm.get('imeGosta')?.touched">
+                Ime gosta je obavezno.
+            </small>
+        </div>
+
+        <div class="col">
+            <label class="form-label">email gosta:</label>
+            <input class="form-control" type="email" formControlName="emailGosta">
+            <small class="text-danger" *ngIf="reservationForm.get('emailGosta')?.invalid && reservationForm.get('emailGosta')?.touched">
+                Email gosta je obavezan.
+            </small>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-3">
+            <label class="form-label">Broj sobe:</label>
+            <input class="form-control" type="number" formControlName="brojSobe">
+            <small class="text-danger" *ngIf="reservationForm.get('brojSobe')?.invalid && reservationForm.get('brojSobe')?.touched">
+                Broj sobe je obavezan.
+            </small>
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="reservationForm.invalid">unesi</button>
+</form>

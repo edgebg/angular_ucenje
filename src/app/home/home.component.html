@@ -1,0 +1,16 @@
+<div class="text-center my-3">
+    <h2 class="mb-4">Dobrodošli na hotelski portal!</h2>
+    <button class="btn btn-primary mx-2" [routerLink]="['/new']">Kreiraj novu rezervaciju</button>
+    <button class="btn btn-primary mx-2" [routerLink]="['/list']">Pogledaj sve rezervacije</button>
+</div>
+<div class="text-center my-1">
+<button (click) ="checkPermission()">Otvori kameru</button>
+
+></div>
+<div *ngIf="camData">
+    <webcam [trigger]="$trigger" (imageCapture)="capture($event)"></webcam>
+    <button (click)="captureImage()" >Napravi sliku</button>
+></div>
+<div *ngIf="capturedImage">
+    <img [src]="capturedImage">
+</div>

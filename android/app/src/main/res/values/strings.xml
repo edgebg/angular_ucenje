@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">hotelskaaplikacija</string>
+    <string name="title_activity_main">hotelskaaplikacija</string>
+    <string name="package_name">iib.app</string>
+    <string name="custom_url_scheme">iib.app</string>
+</resources>
